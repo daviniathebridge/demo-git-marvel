@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Marvel</title>
+    <link rel="stylesheet" type="text/css" href="css/etiquetas.css">
+    <link rel="stylesheet" type="text/css" href="css/estructura.css">
+    <meta charset="UTF8">
+</head>
+
+<body>
+    <div id="principal">
+        <header>
+            <a href="index.html" title="Marvel"><img src="images/marvel_logo.jpeg" alt="Logotipo" height="115px"></a>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html" title="Inicio">Inicio</a></li>
+                <li><a href="loki.html" title="loki">Loki</a></li>
+                <li><a href="wandavision.html" title="wandavision">Wandavision</a></li>
+                <li><a href="avengers.html" title="avengers">Avengers</a></li>
+                <li><a href="eternals.html" title="eternals">Eternals</a></li>
+                <li><a href="shangchi.html" title="shangchi">Shang-Chi</a></li>
+            </ul>
+            <form>
+                <input id="buscador" name="txtBuscar" type="search" placeholder="Buscar aquí..." autofocus></input>
+                <input type="submit" class="boton peque aceptar" value="buscar" onclick="registraBusqueda()"></input>
+            </form>
+        </nav>
+        <aside>
+            <div id="slides">
+                <a href="avengers.html"><img src="images/slide1.jpg" title="Avengers"></a>
+                <a href="shangchi.html"><img src="images/slide2.jpg" title="Shang-Chi"></a>
+            </div>
+        </aside>
+        <section>
+            <div id="busquedasRecientes"></div>
+            <article class="bloques">
+                <h2>Origen</h2>
+                <p>Conocida como <b>Marvel Comics</b>, nació en 1939 con el nombre de <b>Timely Publications</b> de la
+                    mano de un joven empresario de 31 años llamado Martin Goodman, que había comenzado su carrera como
+                    empresario a los 29 años, con una pequeña editorial de revistas pulp llamada Western Fiction
+                    Publishing.​ Al igual que otros editores de pulps de la época, Goodman decidió ampliar su editorial
+                    hacia el floreciente negocio de los cómics en 1939, y para ello contrató los servicios de Funnies
+                    Inc., un taller de escritores y dibujantes especializado en crear cómics para editoriales que no
+                    tenían el dinero o el tiempo suficiente para crear su propia plantilla (cómic shop)...</p>
+                <a href="https://en.wikipedia.org/wiki/Marvel_Comics#History" title="Ver más" class="boton"
+                    target="_blank">Ver más</a>
+            </article>
+
+            <article class="bloques">
+                <h2>MCU</h2>
+                <p>Es una franquicia de medios y un universo compartido, centrada en una serie de películas de
+                    superhéroes producidas independientemente por Marvel Studios y basadas en los personajes que
+                    aparecen en las publicaciones de Marvel Comics. La franquicia se ha expandido hasta incluir cómics,
+                    cortometrajes, series de televisión y series digitales. El universo compartido, de manera similar al
+                    universo Marvel original de los cómics, fue establecido mediante el cruce de tramas, lugares,
+                    reparto y personajes en común. Phil Coulson, interpretado por Clark Gregg, es un personaje original
+                    del MCU y el único personaje que ha aparecido en todos sus diferentes medios.</p>
+
+            </article>
+
+            <article class="bloques">
+                <h2>Galería</h2>
+                <iframe width="300" src="https://www.youtube.com/embed/6ZfuNTqbHE8" title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                <img src="./images/mcu.png" alt="Marvel Cinematic Universe" title="MCU" width="300px">
+            </article>
+        </section>
+        <footer>
+            <section class="bloques">
+                <h2>Marvel Entertainment</h2>
+                <p>Es una empresa estadounidense de entretenimiento, formada de la fusión de Marvel Entertainment Group,
+                    Inc. y Toy Biz, Inc. La compañía es una propiedad total de The Walt Disney Company, y es conocida
+                    principalmente por sus unidades Marvel Comics, Marvel Animation y Marvel Television. Es la antigua
+                    empresa matriz de Marvel Studios (que en agosto de 2015 se convirtió en una filial de Disney), que
+                    desarrolla y produce el Universo cinematográfico de Marvel.</p>
+            </section>
+            <section class="bloques">
+                <h2>Stan Lee</h2>
+                <p>Es principalmente conocido por haber creado personajes icónicos del mundo del cómic tales como
+                    Spider-Man, X-Men, Los 4 Fantásticos, Hulk, Iron Man, Thor, Daredevil, Doctor Strange, Black
+                    Panther, Hombre Hormiga y Bruja Escarlata, entre otros muchos superhéroes, casi siempre acompañado
+                    de los dibujantes Steve Ditko y Jack Kirby. El trabajo de Stan Lee fue fundamental para expandir
+                    Marvel Comics, llevándola de una pequeña casa publicitaria a una gran corporación multimedia.
+                    Todavía hoy, los cómics de Marvel se distinguen por indicar siempre <i>Stan Lee presenta</i> en los
+                    rótulos de presentación. También tuvo un programa televisivo en History Channel en donde buscaba
+                    superhumanos "reales"...</p>
+                <a href="https://es.wikipedia.org/wiki/Stan_Lee" title="Ver más" class="boton" target="_blank">Ver
+                    más</a>
+            </section>
+            <section class="bloques">
+                <img src="./images/stanlee.jpg" alt="Stan Lee" title="Stan Lee" height="320px">
+                <figcaption>Stan Lee</figcaption>
+            </section>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        function cargaContextoCanvas(idCanvas) {
+            var elemento = document.getElementById(idCanvas);
+            if (elemento && elemento.getContext) {
+                var contexto = elemento.getContext('2d');
+                if (contexto) {
+                    return contexto;
+                }
+            }
+            return false;
+        }
+
+
+        function registraBusqueda() {
+            var busqueda = "<h3 color='#fff'>" + document.getElementById('buscador').value + "</h3>";
+            localStorage.setItem("ultimaBusqueda", busqueda);
+        }
+
+        function mostrarBusqueda() {
+            if (localStorage.getItem("ultimaBusqueda") != undefined) {
+                var contenedor = document.getElementById('busquedasRecientes');
+                contenedor.innerHTML += localStorage.getItem("ultimaBusqueda");
+            }
+        }
+
+        window.onload = function () {
+            var ctx = cargaContextoCanvas('lienzo');
+            if (ctx) {
+                var img = new Image();
+                img.src = 'images/HTML5logo.svg';
+                img.onload = function () {
+                    ctx.drawImage(img, 40, 10);
+                }
+            }
+            mostrarBusqueda();
+        }
+    </script>
+</body>
+
+</html>

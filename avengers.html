@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--totaledit-->
+<html>
+
+<head>
+    <title>Marvel - Avengers</title>
+    <link rel="stylesheet" type="text/css" href="css/etiquetas.css">
+    <link rel="stylesheet" type="text/css" href="css/estructura.css">
+    <meta charset="UTF8">
+</head>
+
+<body>
+    <div id="principal">
+        <header>
+            <a href="index.html" title="Inicio"><img
+                    src="images/avengers.PNG" alt="Logotipo"
+                    height="115px"></a>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html" title="Inicio">Inicio</a></li>
+                <li><a href="loki.html" title="loki">Loki</a></li>
+                <li><a href="wandavision.html" title="wandavision">Wandavision</a></li>
+                <li><a href="avengers.html" title="avengers">Avengers</a></li>
+                <li><a href="eternals.html" title="eternals">Eternals</a></li>
+                <li><a href="shangchi.html" title="shangchi">Shang-Chi</a></li>
+            </ul>
+            <form>
+                <input id="buscador" name="txtBuscar" type="search" placeholder="Buscar aquí..." autofocus></input>
+                <input type="submit" class="boton peque aceptar" value="buscar" onclick="registraBusqueda()"></input>
+            </form>
+        </nav>
+        <section>
+            <div id="busquedasRecientes"></div>
+            <article class="bloques">
+                <h2>Iron Man</h2>
+                <p>Es un superhéroe ficticio que aparece en los cómics estadounidenses publicados por Marvel Comics. El personaje fue cocreado por el escritor y editor Stan Lee, desarrollado por el guionista Larry Lieber y diseñado por los artistas Don Heck y Jack Kirby. Hizo su primera aparición en Tales of Suspense #39 (marzo de 1963), y recibió su propio título en Iron Man #1.</p>
+                <img src="https://img.europapress.es/fotoweb/fotonoticia_20200404154752_1200.jpg" alt="Iron-Man" title="Iron Man" width="300px">
+            </article>
+
+            <article class="bloques">
+                <h2>Capitán América</h2>
+                <p>Es un superhéroe ficticio que aparece en los cómics estadounidenses publicados por Marvel Comics. Creado por los historietistas Joe Simon y Jack Kirby, el personaje apareció por primera vez en Captain America Comics #1 (marzo de 1941) de Timely Comics, predecesor de Marvel Comics. El Capitán América fue diseñado como un supersoldado patriota.</p>
+                <img src="https://i0.wp.com/hipertextual.com/wp-content/uploads/2019/05/hipertextual-avengers-endgame-futuro-capitan-america-2019781893-scaled.jpg?fit=1200%2C750&ssl=1" alt="Capitán América" title="Capitán América" width="300px">
+            </article>
+
+            <article class="bloques">
+                <h2>Galería</h2>
+                <iframe width="300" src="https://www.youtube.com/embed/TcMBFSGVi1c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </article>
+        </section>
+        <footer>
+            <section class="bloques">
+                <h2>Black Widow</h2>
+                <p>Se creó inicialmente como un personaje de cómic llamado Natasha Romanova, apareciendo por primera vez como una antagonista recurrente, no disfrazada, de espía ruso en la historieta "Iron Man", comenzando en Tales of Suspense #52 (abril de 1964). Cinco publicaciones más tarde, ella recluta al arquero disfrazado y más tarde superhéroe Hawkeye.</p>
+                <img src="https://i.ytimg.com/vi/uOaCqhR9X3U/maxresdefault.jpg" alt="Black Widow" title="Black Widow" width="300px">
+            </section>
+            <section class="bloques">
+                <h2>Thor</h2>
+                <p>Es un superhéroe ficticio que aparece en los cómics estadounidenses publicados por Marvel Comics. El personaje, que se basa en la deidad nórdica homónima, es el dios del trueno asgardiano poseedor del martillo encantado, Mjolnir, que le otorga la capacidad de volar y manipular el clima entre sus otros atributos sobrehumanos.</p>
+                <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/thor-fat-1561711259.jpg" alt="Thor" title="Thor" width="300px">
+            </section>
+            <section class="bloques">
+                <img src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/avengersendgame_lob_crd_05.jpg" alt="Endgame" title="Endgame" height="350px">
+                <figcaption>Avengers - Endgame</figcaption>
+            </section>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        function cargaContextoCanvas(idCanvas) {
+            var elemento = document.getElementById(idCanvas);
+            if (elemento && elemento.getContext) {
+                var contexto = elemento.getContext('2d');
+                if (contexto) {
+                    return contexto;
+                }
+            }
+            return false;
+        }
+
+
+        function registraBusqueda() {
+            var busqueda = "<h3 color='#fff'>" + document.getElementById('buscador').value + "</h3>";
+            localStorage.setItem("ultimaBusqueda", busqueda);
+        }
+
+        function mostrarBusqueda() {
+            if (localStorage.getItem("ultimaBusqueda") != undefined) {
+                var contenedor = document.getElementById('busquedasRecientes');
+                contenedor.innerHTML += localStorage.getItem("ultimaBusqueda");
+            }
+        }
+
+        window.onload = function () {
+            var ctx = cargaContextoCanvas('lienzo');
+            if (ctx) {
+                var img = new Image();
+                img.src = 'images/HTML5logo.svg';
+                img.onload = function () {
+                    ctx.drawImage(img, 40, 10);
+                }
+            }
+            mostrarBusqueda();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--totaledit-->
+<html>
+
+<head>
+    <title>Marvel - Eternals</title>
+    <link rel="stylesheet" type="text/css" href="css/etiquetas.css">
+    <link rel="stylesheet" type="text/css" href="css/estructura.css">
+    <meta charset="UTF8">
+</head>
+
+<body>
+    <div id="principal">
+        <header>
+            <a href="index.html" title="Loki"><img
+                    src="images/eternals.PNG" alt="Logotipo"
+                    height="115px"></a>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html" title="Inicio">Inicio</a></li>
+                <li><a href="loki.html" title="loki">Loki</a></li>
+                <li><a href="wandavision.html" title="wandavision">Wandavision</a></li>
+                <li><a href="avengers.html" title="avengers">Avengers</a></li>
+                <li><a href="eternals.html" title="eternals">Eternals</a></li>
+                <li><a href="shangchi.html" title="shangchi">Shang-Chi</a></li>
+            </ul>
+            <form>
+                <input id="buscador" name="txtBuscar" type="search" placeholder="Buscar aquí..." autofocus></input>
+                <input type="submit" class="boton peque aceptar" value="buscar" onclick="registraBusqueda()"></input>
+            </form>
+        </nav>
+        <section>
+            <div id="busquedasRecientes"></div>
+            <article class="bloques">
+                <h2>Sersi</h2>
+                <p>Es un personaje ficticio que aparece en los cómics americanos publicados por Marvel Comics. El personaje se representa como un miembro de los Eternos, una raza de superhumanos en el Universo Marvel. Ella apareció por primera vez en la serie de cómics de 1976–78 The Eternals. Ella era miembro de los Vengadores y Escuadrón Dios.</p>
+                <img src="https://terrigen-cdn-dev.marvel.com/content/prod/2x/sersi_com_mas_mob_01.jpg" alt="Sersi" title="Sersi" width="300px">
+            </article>
+
+            <article class="bloques">
+                <h2>Ikaris</h2>
+                <p>Es un personaje ficticio que aparece en los cómics estadounidenses publicados por Marvel Comics. Apareció por primera vez en Eternals # 1 (julio de 1976) y fue creado por Jack Kirby. ​El personaje es representado como un miembro de una raza humana conocida como los Eternos. apareció por primera vez en Eternals # 1 y fue creado por Jack Kirby.</p>
+                <img src="https://imagenes.milenio.com/CGsHEGaioh0BTOVd8aM0ho6BE00=/958x596/https://www.milenio.com/uploads/media/2019/05/23/ikaris-es-uno-de-los_0_89_559_348.jpg" alt="Ikaris" width="300px">
+            </article>
+
+            <article class="bloques">
+                <h2>Galería</h2>
+                <iframe width="300" src="https://www.youtube.com/embed/0WVDKZJkGlY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </article>
+        </section>
+        <footer>
+            <section class="bloques">
+                <h2>Kingo Sunen</h2>
+                <p>Kingo Sunen es un personaje ficticio que aparece en los cómics estadounidenses publicados por Marvel Comics. Apareció por primera vez en The Eternals # 11 (mayo de 1977) y fue creado por Jack Kirby. Lo representan como un miembro de los Eternos, una raza ficticia en el universo de Marvel Comics. En 2019, se anunció que Kumail Nanjiani interpretaría a Kingo Sunen en Marvel Cinematic Universe, debutando en The Eternals.</p>
+                <img src="https://dam.smashmexico.com.mx/wp-content/uploads/2020/11/eternals-arte-promicional-kingo-kumail-nanjiani-cover.jpg" alt="Kingo Sunen" title="Kingo Sunen" width="300px">
+            </section>
+            <section class="bloques">
+                <h2>Sprite</h2>
+                <p>Sprite es un personaje ficticio que aparece en los cómics estadounidenses publicados por Marvel Comics. Apareció por primera vez en The Eternals # 9 (marzo de 1977) y fue creado por Jack Kirby. Aunque físicamente es un niño, Sprite es un Eterno, un miembro de una raza antigua y extremadamente poderosa, que comúnmente se representa como una figura traviesa y tramposa.</p>
+                <img src="https://www.murphysmultiverse.com/wp-content/uploads/2020/10/SPRITE.jpg" alt="Sprite" title="Sprite" width="300px">
+            </section>
+            <section class="bloques">
+                <img src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/eternals_lob_crd_03.jpg" alt="Eternals" title="Eternals" width="300px">
+                <figcaption>Eternals</figcaption>
+            </section>
+        </footer>
+    </div>
+    <script type="text/javascript">
+        function cargaContextoCanvas(idCanvas) {
+            var elemento = document.getElementById(idCanvas);
+            if (elemento && elemento.getContext) {
+                var contexto = elemento.getContext('2d');
+                if (contexto) {
+                    return contexto;
+                }
+            }
+            return false;
+        }
+
+
+        function registraBusqueda() {
+            var busqueda = "<h3 color='#fff'>" + document.getElementById('buscador').value + "</h3>";
+            localStorage.setItem("ultimaBusqueda", busqueda);
+        }
+
+        function mostrarBusqueda() {
+            if (localStorage.getItem("ultimaBusqueda") != undefined) {
+                var contenedor = document.getElementById('busquedasRecientes');
+                contenedor.innerHTML += localStorage.getItem("ultimaBusqueda");
+            }
+        }
+
+        window.onload = function () {
+            var ctx = cargaContextoCanvas('lienzo');
+            if (ctx) {
+                var img = new Image();
+                img.src = 'images/HTML5logo.svg';
+                img.onload = function () {
+                    ctx.drawImage(img, 40, 10);
+                }
+            }
+            mostrarBusqueda();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--totaledit-->
+<html>
+
+<head>
+    <title>Marvel - Loki</title>
+    <link rel="stylesheet" type="text/css" href="css/etiquetas.css">
+    <link rel="stylesheet" type="text/css" href="css/estructura.css">
+    <meta charset="UTF8">
+</head>
+
+<body>
+    <div id="principal">
+        <header>
+            <a href="index.html" title="Loki"><img
+                    src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/loki_banner-main.jpg" alt="Logotipo"
+                    height="115px"></a>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html" title="Inicio">Inicio</a></li>
+                <li><a href="loki.html" title="loki">Loki</a></li>
+                <li><a href="wandavision.html" title="wandavision">Wandavision</a></li>
+                <li><a href="avengers.html" title="avengers">Avengers</a></li>
+                <li><a href="eternals.html" title="eternals">Eternals</a></li>
+                <li><a href="shangchi.html" title="shangchi">Shang-Chi</a></li>
+            </ul>
+            <form>
+                <input id="buscador" name="txtBuscar" type="search" placeholder="Buscar aquí..." autofocus></input>
+                <input type="submit" class="boton peque aceptar" value="buscar" onclick="registraBusqueda()"></input>
+            </form>
+        </nav>
+        <section>
+            <div id="busquedasRecientes"></div>
+            <article class="bloques">
+                <h2>Loki</h2>
+                <p>Es un supervillano ficticio que aparece en los cómics estadounidenses publicados por Marvel Comics. Creado por el escritor Stan Lee, el guionista Larry Lieber y el dibujante Jack Kirby, una versión del personaje apareció por primera vez en Venus #6 (agosto de 1949). La encarnación moderna de Loki apareció por primera vez en Journey into Mystery #85 (octubre de 1962). Él es el hermano adoptado y, a menudo, el enemigo del superhéroe Thor. Loki se basa en la deidad mitológica nórdica homónima y, a veces, se describe como un antihéroe. </p>
+            </article>
+
+            <article class="bloques">
+                <h2>Poderes</h2>
+                <p>Loki es un miembro de la raza de Gigantes de Hielo de Jotunheim, aunque no es un gigante en estatura. Posee atributos físicos equivalentes a un miembro apto de su raza, como fuerza mejorada, resistencia (su metabolismo de Gigante de Hielo le otorga niveles sobrehumanos de resistencia física en prácticamente todas las actividades), velocidad, durabilidad suficiente para resistir balas de alto calibre sin daño, e inmunidad a todas las enfermedades y toxinas conocidas, así como a la resistencia a la magia y al envejecimiento.</p>
+
+            </article>
+
+            <article class="bloques">
+                <h2>Galería</h2>
+                <iframe width="300" src="https://www.youtube.com/embed/nW948Va-l10" title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                <img src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/arc-102-06640_r_per30.jpg" alt="Loki"
+                    title="Loki" width="300px">
+            </article>
+        </section>
+        <footer>
+            <section class="bloques">
+                <h2>Kree</h2>
+                <p>Los Kree, también conocidos como los Ruul, son una raza extraterrestre con una mentalidad militar científicamente avanzada. Proceden de una galaxia remota y muy avanzada. Son nativos del planeta Hala, un planeta anillado parecido al de Saturno, en la Gran Nube de Magallanes, donde todo es de metal y plástico. En Hala, los Kree han cubierto cada centímetro de su planeta natal con ciudades y carreteras. No hay vegetación. Incluso el océano tiene una cubierta de plástico encima.</p>
+            </section>
+            <section class="bloques">
+                <h2>Elfos oscuros</h2>
+                <p>Los Elfos Oscuros, conocidos como Svartálfar por los antiguos nórdicos, Älfeneel o Harudheeniksel por ellos mismos, son una de las especies más antiguas conocidas en el universo, procedentes del reino oscuro de Svartalfheim. Son enemigos mortales de los Asgardianos. Algunos miembros de su raza han demostrado tener la fortaleza para ejercer el poder de una Gema del Infinito. Se cree que están extintos pero quedan unos pocos en el universo, como el que estuvo en el museo de Taneleer Tivan.</p>
+            </section>
+            <section class="bloques">
+                <img src="https://e.rpp-noticias.io/normal/2020/04/02/014301_922727.jpg" alt="Krees" title="Kree" width="300px">
+                <figcaption>Kree</figcaption>
+                <img src="https://static.wikia.nocookie.net/villains/images/7/71/D840EAAA-78DA-4309-97A5-E50721085DA5.jpeg/revision/latest?cb=20171128013451" alt="Dark Elves" title="Dark Elves" width="300px">
+                <figcaption>Elfos oscuros</figcaption>
+            </section>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        function cargaContextoCanvas(idCanvas) {
+            var elemento = document.getElementById(idCanvas);
+            if (elemento && elemento.getContext) {
+                var contexto = elemento.getContext('2d');
+                if (contexto) {
+                    return contexto;
+                }
+            }
+            return false;
+        }
+
+
+        function registraBusqueda() {
+            var busqueda = "<h3 color='#fff'>" + document.getElementById('buscador').value + "</h3>";
+            localStorage.setItem("ultimaBusqueda", busqueda);
+        }
+
+        function mostrarBusqueda() {
+            if (localStorage.getItem("ultimaBusqueda") != undefined) {
+                var contenedor = document.getElementById('busquedasRecientes');
+                contenedor.innerHTML += localStorage.getItem("ultimaBusqueda");
+            }
+        }
+
+        window.onload = function () {
+            var ctx = cargaContextoCanvas('lienzo');
+            if (ctx) {
+                var img = new Image();
+                img.src = 'images/HTML5logo.svg';
+                img.onload = function () {
+                    ctx.drawImage(img, 40, 10);
+                }
+            }
+            mostrarBusqueda();
+        }
+    </script>
+</body>
+
+</html>

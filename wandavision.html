@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--totaledit-->
+<html>
+
+<head>
+    <title>Marvel - Wandavision</title>
+    <link rel="stylesheet" type="text/css" href="css/etiquetas.css">
+    <link rel="stylesheet" type="text/css" href="css/estructura.css">
+    <meta charset="UTF8">
+</head>
+
+<body>
+    <div id="principal">
+        <header>
+            <a href="index.html" title="Wandavision"><img
+                    src="images/wandavision.PNG" alt="Logotipo"
+                    height="115px"></a>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html" title="Inicio">Inicio</a></li>
+                <li><a href="loki.html" title="loki">Loki</a></li>
+                <li><a href="wandavision.html" title="wandavision">Wandavision</a></li>
+                <li><a href="avengers.html" title="avengers">Avengers</a></li>
+                <li><a href="eternals.html" title="eternals">Eternals</a></li>
+                <li><a href="shangchi.html" title="shangchi">Shang-Chi</a></li>
+            </ul>
+            <form>
+                <input id="buscador" name="txtBuscar" type="search" placeholder="Buscar aquí..." autofocus></input>
+                <input type="submit" class="boton peque aceptar" value="buscar" onclick="registraBusqueda()"></input>
+            </form>
+        </nav>
+        <section>
+            <div id="busquedasRecientes"></div>
+            <article class="bloques">
+                <h2>Wanda Maximoff</h2>
+                <p>Es una superheroína ficticia que aparece en los cómics publicados por Marvel Comics. Apareció por primera vez en X-Men #4 (1964) y fue creada por Stan Lee y Jack Kirby, debutando en la denominada Edad de Plata de los Cómics. En sus inicios, fue presentada como una supervillana junto con su hermano gemelo Quicksilver, ambos miembros fundadores de la Hermandad de Mutantes.</p>
+                <img src="https://www.playerone.vg/wp-content/uploads/2021/02/Bruja-Escarlata-..jpg" alt="Wanda Maximoff" width="300px">
+            </article>
+
+            <article class="bloques">
+                <h2>Vision</h2>
+                <p>Visión es un superhéroe ficticio que aparece en los cómics estadounidenses publicados por Marvel Comics. El personaje apareció por primera vez en Avengers Volumen 1 # 57 (publicado en agosto de 1968, con una fecha de portada de octubre de 1968), y se basa libremente en el personaje de Timely Comics del mismo nombre que era un extraterrestre de otra dimensión, es un androide.</p>
+                <img src="https://as.com/meristation/imagenes/2021/01/20/noticias/1611141009_391573_1611141045_noticia_normal.jpg" alt="Vision" width="300px">
+            </article>
+
+            <article class="bloques">
+                <h2>Galería</h2>
+                <iframe width="300" src="https://www.youtube.com/embed/sj9J2ecsSpo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <img src="https://media.gq.com.mx/photos/5f68abaaabe3a852d28d5d51/16:9/w_1920,c_limit/WANDA.jpg" alt="Wandavision"
+                    title="Wandavision" width="300px">
+            </article>
+        </section>
+        <footer>
+            <section class="bloques">
+                <h2>Agatha Harkness</h2>
+                <p>Es un personaje ficticio de los cómics estadounidense publicados por Marvel Comics. Ella es una poderosa bruja, representada como una heroína siniestra y maestra de Wanda Maximoff, además de ser la madre de Nicholas Scratch.Agatha ha sido representada como una de las brujas originales de los juicios de brujas de Salem en Salem, Massachusetts. De alguna manera sobrevivió y más tarde se convirtió en una figura significativa en la continuidad de Marvel.</p>
+            </section>
+            <section class="bloques">
+                <h2>Poderes</h2>
+                <p>Agatha Harkness obtiene sus poderes de la manipulación de las fuerzas de la magia. Tiene la capacidad de manejar fuerzas mágicas para usar distintas técnicas, incluida la teletransportación, la proyección de energía y puede aprovechar la energía extradimensional, invocando entidades u objetos de poder que existen en dimensiones tangenciales a las de la Tierra a través de la recitación de hechizos.</p>
+            </section>
+            <section class="bloques">
+                <img src="https://static.wikia.nocookie.net/marvelmovies/images/8/81/WandaVision_New_Character_Poster_01.jpg/revision/latest?cb=20210111174135" alt="Agatha Harkness" title="Agatha Harkness" height="300px">
+                <figcaption>Agatha Harkness</figcaption>
+            </section>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        function cargaContextoCanvas(idCanvas) {
+            var elemento = document.getElementById(idCanvas);
+            if (elemento && elemento.getContext) {
+                var contexto = elemento.getContext('2d');
+                if (contexto) {
+                    return contexto;
+                }
+            }
+            return false;
+        }
+
+
+        function registraBusqueda() {
+            var busqueda = "<h3 color='#fff'>" + document.getElementById('buscador').value + "</h3>";
+            localStorage.setItem("ultimaBusqueda", busqueda);
+        }
+
+        function mostrarBusqueda() {
+            if (localStorage.getItem("ultimaBusqueda") != undefined) {
+                var contenedor = document.getElementById('busquedasRecientes');
+                contenedor.innerHTML += localStorage.getItem("ultimaBusqueda");
+            }
+        }
+
+        window.onload = function () {
+            var ctx = cargaContextoCanvas('lienzo');
+            if (ctx) {
+                var img = new Image();
+                img.src = 'images/HTML5logo.svg';
+                img.onload = function () {
+                    ctx.drawImage(img, 40, 10);
+                }
+            }
+            mostrarBusqueda();
+        }
+    </script>
+</body>
+
+</html>
